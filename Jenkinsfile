@@ -1,7 +1,7 @@
 pipeline{
   agent none
   stages {
-    stage{'Biuld'){
+    stage('Biuld'){
        agent any
        steps{
           sh'echo começando o biuld..'
