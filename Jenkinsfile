@@ -1,17 +1,14 @@
 pipeline {
-    agent none
+    agent any
     stages {
-        stage('Build') {
-            agent any
+        stage('version') {
             steps {
-                // Usando bat para Windows
-                bat 'echo começando o build.'
-                
-                // Compilação do Python, se você estiver no Windows, use python ou python3
-                bat 'python3 -m py_compile hello.py'
-
-                // Stash para armazenar os arquivos compilados
-                stash(name: 'compiled-results', includes: '*.py*')
+            sh 'python3 --version'
+            }
+        }
+        stage('hello'){
+            steps {
+                sh 'python3 hello.py'
             }
         }
     }            
